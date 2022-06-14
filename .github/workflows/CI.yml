@@ -14,8 +14,7 @@ jobs:
           docker build -t projet_test .
       - name: run docker image
         run:
-          docker run projet_test
-          
+          docker run projet_test     
       - name: docker login
         env:
             DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
