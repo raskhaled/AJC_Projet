@@ -21,6 +21,6 @@ jobs:
             DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
         run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: docker tag
-        run: docker tag projet_test:latest khaled/ajc_projet:test
+        run: docker tag projet_test:latest khaldoune/khaled:tagname
       - name: docker push
-        run: docker push khaled/ajc_projet:test
+        run: docker push khaldoune/khaled:tagname
