@@ -9,4 +9,18 @@ jobs:
         run :
           pip install pytest
           pytest
-          
+      - name: build docker image
+        run:
+          docker build -t projet_test .
+      - name: run docker image
+        run:
+          docker run projet_test
+      - name: docker login
+          env:
+            DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
+            DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+          run: docker login -u $DOCKER -p $DOCKER_PASSWORD
+      -name: docker tag
+        run: docker tag projet_test:latest raskhaled/AJC_Projet
+      -name: docker push
+        run: docker push raskhaled/AJC_Projet
