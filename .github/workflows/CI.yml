@@ -23,4 +23,4 @@ jobs:
       - name: docker tag
         run: docker tag projet_test:latest raskhaled/ajc_projet:test
       - name: docker push
-        run: docker push raskhaled/AJC_Projet
+        run: docker push raskhaled/ajc_projet:test
