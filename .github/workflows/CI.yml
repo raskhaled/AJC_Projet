@@ -15,8 +15,10 @@ jobs:
       - name: run docker image
         run:
           docker run projet_test
+          
       - name: docker login
-        env:
+        uses: docker/build-push-action@v1
+        with:
             DOCKER_USER: ${{secrets.DOCKER_USERNAME}}
             DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
         run: docker login -u $DOCKER_USERNAME --password-stdin $DOCKER_PASSWORD
